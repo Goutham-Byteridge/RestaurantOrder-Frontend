@@ -1,0 +1,31 @@
+.rating-given {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main-outer {
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 350px;
+    padding: 25px;
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 350px;
+}
+
+.item-list  {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.order-id-label {
+    color: blue;
+}
+
+.order-each {
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}

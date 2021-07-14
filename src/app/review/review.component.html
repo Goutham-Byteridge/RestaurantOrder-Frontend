@@ -1,0 +1,54 @@
+<div class="main-outer">
+    <h2>Your Orders</h2>
+    <div *ngFor="let order of restaurantApiService.getOrders()">
+        <div class="order-each">
+            <div class="order-id">
+                <span class="order-id-label">Order Id :</span> <b>{{order.id}} </b>
+
+                <div class="item-list">
+                    <span class="order-id-label">Items :</span>  <b>{{order.itemList}} </b>
+                </div>
+
+                <div class="item-list order-amount">
+                    <span class="order-id-label">Amount :</span>  <b>{{order.amount}} </b>
+                </div>
+
+                
+                <div class="item-list order-comments">
+                    <span class="order-id-label">Comment :</span>  <b>{{order.comments}} </b>
+                </div>
+
+                <button mat-raised-button color="primary" *ngIf="!order.submitted" (click)="openDialog(order)">Review</button> 
+                
+                <span  *ngIf="order.submitted"><b>Rated:</b> <span class="rating-given">{{order.rating}}</span></span> 
+            </div>
+    
+        </div>
+    </div>
+
+
+    <!-- <table  mat-table [dataSource]="restaurantApiService.getOrders()" class="menu-table mat-elevation-z8">
+  
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Order Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="comments">
+            <th mat-header-cell *matHeaderCellDef> Comments </th>
+            <td mat-cell *matCellDef="let element"> {{element.comments}} </td>
+          </ng-container>
+    
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-raised-button color="primary" *ngIf="!element.submitted" (click)="openDialog(order)">Review</button> 
+                <span  *ngIf="element.submitted"><b>Rated:</b> <span class="rating-given">{{element.rating}}</span></span> 
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> -->
+</div>

@@ -1,0 +1,33 @@
+<form [formGroup]="reviewForm">
+    <h2 mat-dialog-title>Review your Order</h2>
+    <div mat-dialog-content>
+      <p>{{data.order.id}}</p>
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Rating
+                </mat-label>
+                <input  formControlName="rating" #rating matInput type="number" min=1 max=5 [(ngModel)]="data.order.rating">
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label>
+                Comment
+            </mat-label>
+            <textarea matNativeControl formControlName="comments" #comments [(ngModel)]="data.order.comments">
+            </textarea>
+    </mat-form-field>
+
+
+    </div>
+    
+    <div *ngIf="reviewForm.invalid">FYI: Rate between 1 and 5 and Enter a comment</div>
+    <div mat-dialog-actions align="end">
+     <button [disabled]="reviewForm.invalid" (click)="submit()"  mat-raised-button color="primary" mat-button>
+        Submit
+    </button>
+    <button  (click)="cancel()"  mat-raised-button  mat-button>
+        Cancel
+    </button>
+    </div>
+</form>
